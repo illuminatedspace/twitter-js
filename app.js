@@ -1,11 +1,13 @@
 const express = require('express');
+const volleyball = require('volleyball');
 
 const app = express();
+app.use(volleyball);
 
 // var articles = ['A', 'B', 'C'];
 
 app.use('/', function(req, res, next){
-	console.log('Request:', req.method, req.path, req.statusCode);
+	console.log('Request:', req.method, req.path);
   next();
 });
 
