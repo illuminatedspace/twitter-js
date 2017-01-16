@@ -4,6 +4,10 @@ const app = express();
 
 // var articles = ['A', 'B', 'C'];
 
+// app.use(function(req, res, next){
+// 	console.log()
+// })
+
 app.get('/', function(req, res, next){
 	res.send('Welcome');
 });
