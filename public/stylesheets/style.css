@@ -43,6 +43,7 @@ code {
 
 .tweetbox {
   padding: 7px;
+  border: 1px solid black;
 }
 
 .tweetbox img {
@@ -66,3 +67,15 @@ li{
   background: none;
   color: #00BFFF;
 }
+
+/*a {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+a:link {
+  background-color: black;
+}*/

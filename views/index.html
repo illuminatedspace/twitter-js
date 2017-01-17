@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  
+
   <div class="page-header">
     <h1>Welcome to Twitter.js!</h1>
   </div>
@@ -17,17 +17,22 @@
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <li>
-        	<div class='tweetbox'>
-        	<img src = 'content'>
-        	<div class='content'>
-        		<div class='by'><a href="/users/{{tweet.name}}">{{tweet.name}}</a></div>
-        		<div>{{tweet.content}}</div>
-        		<button>Re-tweet</button>
-        	</div>
+
+          <div>
+            <div class='tweetbox'>
+        	   <img src = 'content'>
+      	     <div class='content'>
+      		    <div class='by'>
+                <a href="/users/{{tweet.name}}">{{tweet.name}} </div>
+      		    <div><a href="/tweets/{{tweet.idNum}}">{{tweet.content}}</a>></div>
+      		    <button>Re-tweet</button>
+      	     </div>
+            </div>
+          </div>
         </li>
       {% endfor %}
-      
+
     </div>
   </div>
-    
+
 {% endblock %}

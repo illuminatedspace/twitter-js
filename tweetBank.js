@@ -3,9 +3,10 @@
 const _ = require('lodash');
 
 var data = [];
+var idNum = 1;
 
 function add(name, content) {
-  data.push({ name: name, content: content });
+  data.push({ name: name, content: content , idNum: idNum++});
 }
 
 function list () {
