@@ -1,9 +1,11 @@
 const express = require('express');
 const volleyball = require('volleyball');
 const nunjucks = require('nunjucks');
+const routes = require('./routes/');
 
 const app = express();
 app.use(volleyball);
+app.use('/', routes);
 
 // var articles = ['A', 'B', 'C'];
 
@@ -17,13 +19,15 @@ app.use('/special/', function(req, res, next){
   next();
 });
 
-app.get('/', function(req, res, next){
-	res.render('index.html', locals);
-});
+app.use(express.static('public'));
 
-app.get('/news', function(req, res, next){
-	res.send('Breaking News:');
-});
+// app.get('/', function(req, res, next){
+// 	res.render('index.html', locals);
+// });
+
+// app.get('/news', function(req, res, next){
+// 	res.send('Breaking News:');
+// });
 
 
 
@@ -63,10 +67,6 @@ var locals = {
 nunjucks.configure('views', {noCache: true});
 //we want to turn off caching because we will be making changes, so we don't want to keep storing our current version 
 //configure takes you to the environment where you want to use render 
-
-// nunjucks.render('index.html', locals, function(err, output){
-// 	console.log(output);
-// });
 
 app.set('view engine', 'html'); // have res.render work with html files
 app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
