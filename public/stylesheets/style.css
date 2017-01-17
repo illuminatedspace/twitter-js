@@ -60,3 +60,9 @@ code {
 li{
   list-style: none;
 }
+
+.content button{
+  border: none;
+  background: none;
+  color: #00BFFF;
+}
