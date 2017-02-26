@@ -7,12 +7,14 @@ const app = express();
 app.use(volleyball);
 app.use('/', routes);
 
-// var articles = ['A', 'B', 'C'];
-
 app.use('/', function(req, res, next){
 	console.log('Request:', req.method, req.path);
+  res.on('finish', function() {
+    console.log('Responded:', res.statusCode);
+  })
   next();
 });
+
 
 app.use('/special/', function(req, res, next){
   console.log('This is a special area:', req.method, req.path);
@@ -57,16 +59,9 @@ app.listen(3000, function(){
 	console.log('Server listening');
 });
 
-var locals = {
-	title: "Title",
-	people: [{name: "john" }, {name: "joe" }, {name: "jill"}]
-
-};
-
-
 nunjucks.configure('views', {noCache: true});
-//we want to turn off caching because we will be making changes, so we don't want to keep storing our current version 
-//configure takes you to the environment where you want to use render 
+//we want to turn off caching because we will be making changes, so we don't want to keep storing our current version
+//configure takes you to the environment where you want to use render
 
 app.set('view engine', 'html'); // have res.render work with html files
 app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
